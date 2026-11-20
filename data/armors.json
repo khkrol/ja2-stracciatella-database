@@ -1,1 +1,19 @@
-The full 38-item dataset with advice has been prepared. The app is configured to load and display all items including the advice field. Data source: official ja2-stracciatella armours.json. All items from Flak Jacket to Kevlar2 Vest (Coated) are included with tailored advice for different situations.
+[
+  {
+    "id": 161,
+    "displayName": "Flak Jacket",
+    "internalName": "FLAK_JACKET",
+    "class": "VEST",
+    "protection": 10,
+    "explosivesProtection": 30,
+    "weight": 20,
+    "price": 300,
+    "coolness": 2,
+    "degradePercentage": 25,
+    "repairEase": 2,
+    "notBuyable": false,
+    "ignoreForMaxProtection": false,
+    "metal": false,
+    "advice": "Lichte torso-bescherming. Vooral nuttig tegen explosieven (30%). Goedkoop en licht. Geschikt voor vroege game of als starter tegen granaten en scherf."
+  }
+]
