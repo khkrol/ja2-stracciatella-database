@@ -30,5 +30,21 @@
     "notBuyable": true,
     "ignoreForMaxProtection": false,
     "metal": false
+  },
+  {
+    "id": 163,
+    "displayName": "Flak Jacket (Coated)",
+    "internalName": "FLAK_JACKET_Y",
+    "class": "VEST",
+    "protection": 16,
+    "explosivesProtection": 48,
+    "weight": 18,
+    "price": 400,
+    "coolness": 0,
+    "degradePercentage": 15,
+    "repairEase": 3,
+    "notBuyable": true,
+    "ignoreForMaxProtection": true,
+    "metal": false
   }
 ]
