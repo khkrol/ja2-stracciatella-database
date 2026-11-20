@@ -1,1 +1,340 @@
-PLACEHOLDER_HTML
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JA2 Stracciatella Database</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e1610;
+  --bg-card: #1a241c;
+  --bg-card-hover: #243028;
+  --accent: #c9a227;
+  --accent-dim: #8a7018;
+  --text: #e8e0d0;
+  --text-dim: #a09880;
+  --green: #6b9e4e;
+  --red: #c44;
+  --border: #3a4a3a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100vh;
+  background-image: radial-gradient(ellipse at top, #1a2a1c 0%, #0e1610 70%);
+}
+header {
+  background: linear-gradient(180deg, #1c281c 0%, #121a12 100%);
+  border-bottom: 3px solid var(--accent);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.logo {
+  font-family: 'Black Ops One', cursive;
+  font-size: 1.8rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #000;
+}
+.logo span { color: var(--text); font-size: 1.1rem; display: block; font-family: 'Rajdhani', sans-serif; letter-spacing: 4px; margin-top: -4px; }
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+.tab {
+  background: #2a3a2a;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+.tab.active, .tab:hover {
+  background: var(--accent-dim);
+  color: #fff;
+  border-color: var(--accent);
+}
+.tab.disabled { opacity: 0.5; cursor: not-allowed; }
+main { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
+.controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.search {
+  flex: 1;
+  min-width: 200px;
+  background: #121a12;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.7rem 1rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+}
+.search:focus { outline: 2px solid var(--accent); }
+.filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filter-btn {
+  background: #2a3a2a;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.filter-btn.active { background: var(--green); border-color: #8c0; color: #000; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.card-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.card-class {
+  background: #3a4a3a;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1rem;
+  margin-top: 0.8rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+}
+.stat { display: flex; justify-content: space-between; }
+.stat-label { color: var(--text-dim); }
+.prot-bar {
+  height: 6px;
+  background: #1a1a1a;
+  margin-top: 0.6rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.prot-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4a7a3a, var(--green));
+  width: 0%;
+  transition: width 0.5s;
+}
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.7rem;
+  background: #a00;
+  color: #fff;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal.open { display: flex; }
+.modal-content {
+  background: var(--bg-card);
+  border: 2px solid var(--accent);
+  max-width: 500px;
+  width: 100%;
+  padding: 1.5rem;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.coming-soon {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-dim);
+  font-size: 1.4rem;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+@media (max-width: 600px) {
+  .logo { font-size: 1.4rem; }
+  header { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    JA2 STRACCIATELLA
+    <span>ITEM DATABASE</span>
+  </div>
+  <div class="tabs">
+    <div class="tab active" data-tab="armor">Armor</div>
+    <div class="tab disabled" data-tab="guns">Guns <small>(soon)</small></div>
+    <div class="tab disabled" data-tab="accessories">Accessories <small>(soon)</small></div>
+  </div>
+</header>
+<main>
+  <div class="controls">
+    <input type="text" class="search" id="search" placeholder="Search armor...">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-class="ALL">All</button>
+      <button class="filter-btn" data-class="HELMET">Helmets</button>
+      <button class="filter-btn" data-class="VEST">Vests</button>
+      <button class="filter-btn" data-class="LEGGINGS">Leggings</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+<footer>
+  Data extracted from the official <a href="https://github.com/ja2-stracciatella/ja2-stracciatella" style="color:var(--accent)">ja2-stracciatella</a> armours.json<br>
+  Single-page app – expandable for guns & accessories
+</footer>
+<script>
+const armors = []; // will be loaded
+let currentFilter = 'ALL';
+let searchTerm = '';
+
+async function loadData() {
+  const res = await fetch('data/armors.json');
+  const data = await res.json();
+  armors.push(...data);
+  render();
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  const filtered = armors.filter(a => {
+    const matchesClass = currentFilter === 'ALL' || a.class === currentFilter;
+    const matchesSearch = !searchTerm || a.displayName.toLowerCase().includes(searchTerm) || a.internalName.toLowerCase().includes(searchTerm);
+    return matchesClass && matchesSearch;
+  });
+  grid.innerHTML = filtered.map(a => `
+    <div class="card" data-id="${a.id}">
+      ${a.notBuyable ? '<div class="badge">SCI-FI</div>' : ''}
+      <div class="card-header">
+        <div class="card-name">${a.displayName}</div>
+        <div class="card-class">${a.class}</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="stat-label">PROT</span><span>${a.protection}%</span></div>
+        <div class="stat"><span class="stat-label">WEIGHT</span><span>${a.weight}</span></div>
+        <div class="stat"><span class="stat-label">PRICE</span><span>$${a.price}</span></div>
+        <div class="stat"><span class="stat-label">COOL</span><span>${a.coolness || '–'}</span></div>
+      </div>
+      <div class="prot-bar"><div class="prot-fill" style="width:${Math.min(a.protection, 50) * 2}%"></div></div>
+    </div>
+  `).join('');
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => openModal(+card.dataset.id));
+  });
+}
+
+function openModal(id) {
+  const a = armors.find(x => x.id === id);
+  if (!a) return;
+  document.getElementById('modal-body').innerHTML = `
+    <h2 style="color:var(--accent);font-family:'Black Ops One',cursive;margin-bottom:0.5rem">${a.displayName}</h2>
+    <div style="color:var(--text-dim);margin-bottom:1rem">${a.internalName} &middot; ${a.class}</div>
+    <div class="stats" style="grid-template-columns:1fr 1fr;font-size:1rem">
+      <div class="stat"><span class="stat-label">Protection</span><span>${a.protection}%</span></div>
+      <div class="stat"><span class="stat-label">Explosives Prot.</span><span>${a.explosivesProtection ?? '–'}%</span></div>
+      <div class="stat"><span class="stat-label">Weight</span><span>${a.weight}</span></div>
+      <div class="stat"><span class="stat-label">Price</span><span>$${a.price}</span></div>
+      <div class="stat"><span class="stat-label">Coolness</span><span>${a.coolness || '–'}</span></div>
+      <div class="stat"><span class="stat-label">Degrade %</span><span>${a.degradePercentage}</span></div>
+      <div class="stat"><span class="stat-label">Repair Ease</span><span>${a.repairEase}</span></div>
+      <div class="stat"><span class="stat-label">Not Buyable</span><span>${a.notBuyable ? 'Yes' : 'No'}</span></div>
+    </div>
+    ${a.ignoreForMaxProtection ? '<p style="margin-top:1rem;color:#c94">Ignores max protection calculation (coated)</p>' : ''}
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+
+document.getElementById('modal-close').onclick = () => document.getElementById('modal').classList.remove('open');
+document.getElementById('modal').onclick = (e) => { if (e.target.id === 'modal') document.getElementById('modal').classList.remove('open'); };
+
+document.getElementById('search').addEventListener('input', (e) => {
+  searchTerm = e.target.value.toLowerCase();
+  render();
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.class;
+    render();
+  });
+});
+
+loadData();
+</script>
+</body>
+</html>
