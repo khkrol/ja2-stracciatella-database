@@ -1,1 +1,34 @@
-PLACEHOLDER_ARMORS
+[
+  {
+    "id": 161,
+    "displayName": "Flak Jacket",
+    "internalName": "FLAK_JACKET",
+    "class": "VEST",
+    "protection": 10,
+    "explosivesProtection": 30,
+    "weight": 20,
+    "price": 300,
+    "coolness": 2,
+    "degradePercentage": 25,
+    "repairEase": 2,
+    "notBuyable": false,
+    "ignoreForMaxProtection": false,
+    "metal": false
+  },
+  {
+    "id": 162,
+    "displayName": "Flak Jacket (Compound 18)",
+    "internalName": "FLAK_JACKET_18",
+    "class": "VEST",
+    "protection": 13,
+    "explosivesProtection": 39,
+    "weight": 22,
+    "price": 350,
+    "coolness": 0,
+    "degradePercentage": 20,
+    "repairEase": 1,
+    "notBuyable": true,
+    "ignoreForMaxProtection": false,
+    "metal": false
+  }
+]
