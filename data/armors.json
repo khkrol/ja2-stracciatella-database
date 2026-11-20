@@ -14,6 +14,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "vest",
     "advice": "Lichte torso-bescherming. Vooral nuttig tegen explosieven (30%). Goedkoop en licht. Geschikt voor vroege game of als starter tegen granaten en scherf."
   },
   {
@@ -30,6 +31,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "vest",
     "advice": "Standaard body armor. Goede algemene bescherming voor de romp. Aanbevolen voor frontlinie. Merbaar gewicht."
   },
   {
@@ -46,6 +48,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "vest",
     "advice": "Hoge protectie voor de torso. Zwaar, maar zeer effectief tegen kogels. Ideaal voor zware gevechten."
   },
   {
@@ -62,6 +65,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "leggings",
     "advice": "Goede leggings. Beschermen de benen effectief. Aan te raden als je veel in de open lucht vecht. Zwaar \u2013 let op mobiliteit."
   },
   {
@@ -78,6 +82,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "leggings",
     "advice": "Zware beenbescherming. Zeer effectief, maar merkbare impact op mobiliteit door het gewicht."
   },
   {
@@ -94,6 +99,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": true,
+    "icon": "helmet",
     "advice": "Basisbescherming voor het hoofd. Goedkoop en licht. Geschikt voor vroege game of als je weinig geld hebt."
   },
   {
@@ -110,6 +116,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "helmet",
     "advice": "Solide helm. Goede balans tussen bescherming en gewicht. Aan te raden voor de meeste gevechten."
   },
   {
@@ -126,6 +133,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "helmet",
     "advice": "Uitstekende hoofdprotectie. Zeer effectief tegen zwaardere wapens, nog draagbaar. High-end keuze."
   },
   {
@@ -142,6 +150,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "plate",
     "advice": "Inzetbare platen voor extra torso-protectie. Slijten snel. Goed om in een vest te stoppen voor zware gevechten."
   },
   {
@@ -158,6 +167,7 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "vest",
     "advice": "Lichte, stijlvolle bescherming. Weinig protectie, maar licht en cool. Meer fashion dan armor."
   },
   {
@@ -174,11 +184,12 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
+    "icon": "vest",
     "advice": "Bijna geen bescherming. Alleen voor als je echt niets anders hebt. Zeer licht."
   },
   {
     "id": 196,
-    "displayName": "Kevlar2 Vest",
+    "displayName": "Guardian Vest",
     "internalName": "KEVLAR2_VEST",
     "class": "VEST",
     "protection": 22,
@@ -190,6 +201,41 @@
     "notBuyable": false,
     "ignoreForMaxProtection": false,
     "metal": false,
-    "advice": "Verbeterde Kevlar-vest. Sterkere protectie dan standaard Kevlar, nog steeds draagbaar."
+    "icon": "vest",
+    "advice": "Hoogwaardige Kevlar-vest van Guardian Armories. Betere bescherming dan standaard Kevlar, met ruimte voor ceramic plates. Uitstekende keuze voor de mid-game."
+  },
+  {
+    "id": 197,
+    "displayName": "Treated Guardian Vest",
+    "internalName": "KEVLAR2_VEST_18",
+    "class": "VEST",
+    "protection": 27,
+    "weight": 32,
+    "price": 950,
+    "coolness": 0,
+    "degradePercentage": 12,
+    "repairEase": -1,
+    "notBuyable": true,
+    "ignoreForMaxProtection": false,
+    "metal": false,
+    "icon": "vest",
+    "advice": "Guardian Vest behandeld met Compound 18. Sterkere protectie. Alleen beschikbaar in Sci-Fi mode."
+  },
+  {
+    "id": 198,
+    "displayName": "Coated Guardian Vest",
+    "internalName": "KEVLAR2_VEST_Y",
+    "class": "VEST",
+    "protection": 32,
+    "weight": 29,
+    "price": 1100,
+    "coolness": 0,
+    "degradePercentage": 10,
+    "repairEase": 0,
+    "notBuyable": true,
+    "ignoreForMaxProtection": true,
+    "metal": false,
+    "icon": "vest",
+    "advice": "Guardian Vest gecoat met Queen Jelly. Maximale protectie voor dit type. Telt niet mee voor de maximale protectie-limiet. Alleen in Sci-Fi."
   }
 ]
