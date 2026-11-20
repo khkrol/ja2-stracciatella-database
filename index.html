@@ -51,207 +51,54 @@ header {
 }
 @media (min-width: 700px) { .logo { text-align: left; font-size: 1.8rem; } }
 .logo span { color: var(--text); font-size: 0.9rem; display: block; font-family: 'Rajdhani', sans-serif; letter-spacing: 3px; margin-top: -2px; }
-.tabs {
-  display: flex;
-  gap: 0.4rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.tabs { display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
 .tab {
-  background: #2a3a2a;
-  border: 1px solid var(--border);
-  color: var(--text-dim);
-  padding: 0.45rem 0.9rem;
-  cursor: pointer;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: 3px;
+  background: #2a3a2a; border: 1px solid var(--border); color: var(--text-dim);
+  padding: 0.45rem 0.9rem; cursor: pointer; font-family: 'Rajdhani', sans-serif;
+  font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 3px;
 }
 .tab.active, .tab:hover { background: var(--accent-dim); color: #fff; border-color: var(--accent); }
 .tab.disabled { opacity: 0.45; cursor: not-allowed; }
 main { max-width: 1400px; margin: 0 auto; padding: 1rem; }
-.controls {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-bottom: 1.2rem;
-}
+.controls { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.2rem; }
 @media (min-width: 700px) { .controls { flex-direction: row; align-items: center; } }
-.search {
-  width: 100%;
-  background: #121a12;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.75rem 1rem;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.05rem;
-  border-radius: 4px;
-}
+.search { width: 100%; background: #121a12; border: 1px solid var(--border); color: var(--text); padding: 0.75rem 1rem; font-family: 'Rajdhani', sans-serif; font-size: 1.05rem; border-radius: 4px; }
 .search:focus { outline: 2px solid var(--accent); }
 .filters { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; }
-.filter-btn {
-  background: #2a3a2a;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.5rem 0.9rem;
-  cursor: pointer;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: 4px;
-  font-size: 0.95rem;
-}
+.filter-btn { background: #2a3a2a; border: 1px solid var(--border); color: var(--text); padding: 0.5rem 0.9rem; cursor: pointer; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border-radius: 4px; font-size: 0.95rem; }
 .filter-btn.active { background: var(--green); border-color: #8c0; color: #000; }
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.8rem;
-}
+.grid { display: grid; grid-template-columns: 1fr; gap: 0.8rem; }
 @media (min-width: 500px) { .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); } }
 @media (min-width: 900px) { .grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; } }
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  position: relative;
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 0.9rem; cursor: pointer; transition: all 0.2s; position: relative; }
+.card:hover, .card:active { background: var(--bg-card-hover); border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+.card-top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem; }
+.icon {
+  width: 52px; height: 52px; background: #121a12; border: 1px solid var(--border);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; flex-shrink: 0;
 }
-.card:hover, .card:active {
-  background: var(--bg-card-hover);
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.4rem;
-  gap: 0.5rem;
-}
-.card-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.2;
-  flex: 1;
-}
-.card-class {
-  background: #3a4a3a;
-  color: var(--text-dim);
-  font-size: 0.7rem;
-  padding: 0.2rem 0.45rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 2px;
-  white-space: nowrap;
-}
-.stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.35rem 0.8rem;
-  margin-top: 0.7rem;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.85rem;
-}
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; flex: 1; }
+.card-name { font-size: 1.15rem; font-weight: 700; color: var(--accent); line-height: 1.2; }
+.card-class { background: #3a4a3a; color: var(--text-dim); font-size: 0.7rem; padding: 0.2rem 0.45rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 2px; white-space: nowrap; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 0.8rem; margin-top: 0.6rem; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem; }
 .stat { display: flex; justify-content: space-between; }
 .stat-label { color: var(--text-dim); }
-.prot-bar {
-  height: 6px;
-  background: #1a1a1a;
-  margin-top: 0.55rem;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.prot-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #4a7a3a, var(--green));
-  width: 0%;
-  transition: width 0.5s;
-}
-.badge {
-  position: absolute;
-  top: 0.4rem;
-  right: 0.4rem;
-  font-size: 0.65rem;
-  background: #a00;
-  color: #fff;
-  padding: 0.1rem 0.35rem;
-  border-radius: 2px;
-}
-.advice-preview {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
+.prot-bar { height: 6px; background: #1a1a1a; margin-top: 0.55rem; border-radius: 3px; overflow: hidden; }
+.prot-fill { height: 100%; background: linear-gradient(90deg, #4a7a3a, var(--green)); width: 0%; transition: width 0.5s; }
+.badge { position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.65rem; background: #a00; color: #fff; padding: 0.1rem 0.35rem; border-radius: 2px; }
+.advice-preview { margin-top: 0.6rem; font-size: 0.85rem; color: var(--text-dim); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; align-items: center; justify-content: center; padding: 1rem; }
 .modal.open { display: flex; }
-.modal-content {
-  background: var(--bg-card);
-  border: 2px solid var(--accent);
-  max-width: 520px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 1.3rem;
-  position: relative;
-  border-radius: 6px;
-}
-.modal-close {
-  position: absolute;
-  top: 0.4rem;
-  right: 0.6rem;
-  background: none;
-  border: none;
-  color: var(--text);
-  font-size: 1.8rem;
-  cursor: pointer;
-  line-height: 1;
-}
-.advice-full {
-  margin-top: 1rem;
-  padding: 0.8rem;
-  background: #121a12;
-  border-left: 3px solid var(--accent);
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--text);
-}
-footer {
-  text-align: center;
-  padding: 1.5rem 1rem;
-  color: var(--text-dim);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border);
-  margin-top: 1.5rem;
-}
+.modal-content { background: var(--bg-card); border: 2px solid var(--accent); max-width: 520px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 1.3rem; position: relative; border-radius: 6px; }
+.modal-close { position: absolute; top: 0.4rem; right: 0.6rem; background: none; border: none; color: var(--text); font-size: 1.8rem; cursor: pointer; line-height: 1; }
+.advice-full { margin-top: 1rem; padding: 0.8rem; background: #121a12; border-left: 3px solid var(--accent); font-size: 0.95rem; line-height: 1.45; color: var(--text); }
+footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 1.5rem; }
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">
-    JA2 STRACCIATELLA
-    <span>ITEM DATABASE</span>
-  </div>
+  <div class="logo">JA2 STRACCIATELLA<span>ITEM DATABASE</span></div>
   <div class="tabs">
     <div class="tab active" data-tab="armor">Armor</div>
     <div class="tab disabled" data-tab="guns">Guns <small>(soon)</small></div>
@@ -285,6 +132,14 @@ const armors = [];
 let currentFilter = 'ALL';
 let searchTerm = '';
 
+const icons = {
+  helmet: '\u{1F3A7}',
+  vest: '\u{1F9E5}',
+  leggings: '\u{1F45E}',
+  plate: '\u{1F6E1}',
+  armor: '\u{1F6E1}'
+};
+
 async function loadData() {
   const res = await fetch('data/armors.json');
   const data = await res.json();
@@ -302,15 +157,18 @@ function render() {
   grid.innerHTML = filtered.map(a => `
     <div class="card" data-id="${a.id}">
       ${a.notBuyable ? '<div class="badge">SCI-FI</div>' : ''}
-      <div class="card-header">
-        <div class="card-name">${a.displayName}</div>
-        <div class="card-class">${a.class}</div>
+      <div class="card-top">
+        <div class="icon">${icons[a.icon] || icons.armor}</div>
+        <div class="card-header">
+          <div class="card-name">${a.displayName}</div>
+          <div class="card-class">${a.class}</div>
+        </div>
       </div>
       <div class="stats">
         <div class="stat"><span class="stat-label">PROT</span><span>${a.protection}%</span></div>
         <div class="stat"><span class="stat-label">GEWICHT</span><span>${a.weight}</span></div>
         <div class="stat"><span class="stat-label">PRIJS</span><span>$${a.price}</span></div>
-        <div class="stat"><span class="stat-label">COOL</span><span>${a.coolness || '–'}</span></div>
+        <div class="stat"><span class="stat-label">COOL</span><span>${a.coolness || '\u2013'}</span></div>
       </div>
       <div class="prot-bar"><div class="prot-fill" style="width:${Math.min(a.protection, 50) * 2}%"></div></div>
       ${a.advice ? `<div class="advice-preview">${a.advice}</div>` : ''}
@@ -325,14 +183,19 @@ function openModal(id) {
   const a = armors.find(x => x.id === id);
   if (!a) return;
   document.getElementById('modal-body').innerHTML = `
-    <h2 style="color:var(--accent);font-family:'Black Ops One',cursive;margin-bottom:0.4rem;font-size:1.4rem">${a.displayName}</h2>
-    <div style="color:var(--text-dim);margin-bottom:0.8rem;font-size:0.9rem">${a.internalName} · ${a.class}</div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.8rem">
+      <div class="icon" style="width:64px;height:64px;font-size:2.2rem">${icons[a.icon] || icons.armor}</div>
+      <div>
+        <h2 style="color:var(--accent);font-family:'Black Ops One',cursive;font-size:1.35rem;margin:0">${a.displayName}</h2>
+        <div style="color:var(--text-dim);font-size:0.9rem">${a.internalName} \u00b7 ${a.class}</div>
+      </div>
+    </div>
     <div class="stats" style="grid-template-columns:1fr 1fr;font-size:0.95rem">
       <div class="stat"><span class="stat-label">Protection</span><span>${a.protection}%</span></div>
-      <div class="stat"><span class="stat-label">Explosives</span><span>${a.explosivesProtection ?? '–'}%</span></div>
+      <div class="stat"><span class="stat-label">Explosives</span><span>${a.explosivesProtection ?? '\u2013'}%</span></div>
       <div class="stat"><span class="stat-label">Gewicht</span><span>${a.weight}</span></div>
       <div class="stat"><span class="stat-label">Prijs</span><span>$${a.price}</span></div>
-      <div class="stat"><span class="stat-label">Coolness</span><span>${a.coolness || '–'}</span></div>
+      <div class="stat"><span class="stat-label">Coolness</span><span>${a.coolness || '\u2013'}</span></div>
       <div class="stat"><span class="stat-label">Degrade %</span><span>${a.degradePercentage}</span></div>
       <div class="stat"><span class="stat-label">Repair Ease</span><span>${a.repairEase}</span></div>
       <div class="stat"><span class="stat-label">Not Buyable</span><span>${a.notBuyable ? 'Ja' : 'Nee'}</span></div>
